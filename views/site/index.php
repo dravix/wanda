@@ -21,7 +21,7 @@ $this->title = 'Pyventa Web';
                 <h2>Productos</h2>
 
                 <p>
-                    <?= Html::a('Administracion de productos',['articulos/index'],['class'=>'btn btn-primary']) ?>
+                    <?= Html::a('Administracion de productos',['articulos/index'],['class'=>'btn btn-success']) ?>
 
                 </p>
             </div>
