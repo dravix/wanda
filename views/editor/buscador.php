@@ -24,7 +24,7 @@ $template = '<div><p class="repo-language">{{codigo}}</p>' .
                 var template = Handlebars.compile(source);
                 var html    = template(current);
                 $('#actual').html(html);
-                let cant=$('#cantidad');
+                var cant=$('#cantidad');
                 cant.val(1);
                 cant.focus();
                 cant.select();
