@@ -3,13 +3,13 @@
 namespace app\models;
 
 use Yii;
-use \app\models\base\Vendidos as BaseVendidos;
+use \app\models\base\Existencia as BaseExistencia;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the model class for table "vendidos".
+ * This is the model class for table "existencia".
  */
-class Vendidos extends BaseVendidos
+class Existencia extends BaseExistencia
 {
 
 public function behaviors()
@@ -31,10 +31,4 @@ public function behaviors()
              ]
         );
     }
-
-    public function getProducto()
-    {
-      return $this->hasOne(Articulos::className(),['ref'=>'producto']);
-    }
-
 }
