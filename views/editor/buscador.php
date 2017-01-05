@@ -36,7 +36,7 @@ $template = '<div><p class="repo-language">{{codigo}}</p>' .
                 'display' => 'descripcion',
                 // 'prefetch' => $url,
                 'remote' => [
-                    'url' => $url. '?q=%QUERY',
+                    'url' => $url. '&q=%QUERY',
                     'wildcard' => '%QUERY'
                 ]
             ]
