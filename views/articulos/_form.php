@@ -20,6 +20,7 @@ use yii\helpers\ArrayHelper;
  */
  $unidades=ArrayHelper::map(\app\models\Unidades::find()->asArray()->all(), 'id', 'nombre');
  $familias=ArrayHelper::map(\app\models\Familias::find()->asArray()->all(), 'id', 'nombre');
+ $impuestos=ArrayHelper::map(\app\models\Impuestos::find()->asArray()->all(), 'id', 'nombre');
 ?>
 
 <div class="articulos-form">
@@ -42,35 +43,42 @@ use yii\helpers\ArrayHelper;
 <!-- attribute codigo -->
 			<?php echo $form->field($model, 'codigo')->textInput(['maxlength' => true]) ?>
 
-<!-- attribute familia -->
-			<?php echo $form->field($model, 'familia')->dropDownList($familias) ?>
-
-<!-- attribute unidad -->
-			<?php echo $form->field($model, 'unidad')->dropDownList($unidades) ?>
-
-<!-- attribute impuesto -->
-			<?php echo $form->field($model, 'impuesto')->textInput() ?>
-
-<!-- attribute descripcion -->
+		<!-- attribute descripcion -->
 			<?php echo $form->field($model, 'descripcion')->textInput(['maxlength' => true]) ?>
+
+<div class="row">
+	<div class="col-md-4">
+<!-- attribute familia -->
+			<?php echo $form->field($model, 'familia')->dropDownList($familias) ?>		
+	</div>
+	<div class="col-md-4">
+		<!-- attribute unidad -->
+			<?php echo $form->field($model, 'unidad')->dropDownList($unidades) ?>
+	</div>
+	<div class="col-md-4">
+		
+<!-- attribute impuesto -->
+			<?php echo $form->field($model, 'impuesto')->dropDownList($impuestos) ?>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-4">
+		
+
 
 <!-- attribute costo -->
 			<?php echo $form->field($model, 'costo')->textInput() ?>
-
+	</div>
+	<div class="col-md-4">
 <!-- attribute ganancia -->
 			<?php echo $form->field($model, 'ganancia')->textInput() ?>
-
+	</div>	
+	<div class="col-md-4">
 <!-- attribute precio -->
 			<?php echo $form->field($model, 'precio')->textInput() ?>
+	</div>
 
-<!-- attribute stock -->
-			<?php echo $form->field($model, 'stock')->textInput() ?>
-
-<!-- attribute vendidas -->
-			<?php echo $form->field($model, 'vendidas')->textInput() ?>
-
-<!-- attribute ultima_modificacion -->
-			<?php echo $form->field($model, 'ultima_modificacion')->textInput() ?>
+</div>
         </p>
         <?php $this->endBlock(); ?>
 
@@ -94,7 +102,7 @@ Tabs::widget(
 
         <?php echo Html::submitButton(
 	'<span class="glyphicon glyphicon-check"></span> ' .
-	($model->isNewRecord ? 'Create' : 'Save'),
+	($model->isNewRecord ? 'Crear' : 'Guardar'),
 	[
 		'id' => 'save-' . $model->formName(),
 		'class' => 'btn btn-success'

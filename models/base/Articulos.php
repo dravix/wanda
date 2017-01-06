@@ -44,7 +44,7 @@ abstract class Articulos extends \yii\db\ActiveRecord
     {
         return [
             [['codigo', 'familia', 'unidad', 'impuesto'], 'integer'],
-            [['descripcion', 'familia', 'costo', 'ganancia', 'precio', 'stock', 'unidad', 'impuesto'], 'required'],
+            [['descripcion', 'familia', 'precio', 'unidad', 'impuesto'], 'required'],
             [['costo', 'ganancia', 'precio', 'stock', 'vendidas'], 'number'],
             [['ultima_modificacion'], 'safe'],
             [['descripcion'], 'string', 'max' => 100]
