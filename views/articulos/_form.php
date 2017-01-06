@@ -10,6 +10,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use \dmstr\bootstrap\Tabs;
 use yii\helpers\StringHelper;
+use yii\helpers\ArrayHelper;
 
 /**
  *
@@ -17,6 +18,8 @@ use yii\helpers\StringHelper;
  * @var app\models\Articulos $model
  * @var yii\widgets\ActiveForm $form
  */
+ $unidades=ArrayHelper::map(\app\models\Unidades::find()->asArray()->all(), 'id', 'nombre');
+ $familias=ArrayHelper::map(\app\models\Familias::find()->asArray()->all(), 'id', 'nombre');
 ?>
 
 <div class="articulos-form">
@@ -40,10 +43,10 @@ use yii\helpers\StringHelper;
 			<?php echo $form->field($model, 'codigo')->textInput(['maxlength' => true]) ?>
 
 <!-- attribute familia -->
-			<?php echo $form->field($model, 'familia')->textInput() ?>
+			<?php echo $form->field($model, 'familia')->dropDownList($familias) ?>
 
 <!-- attribute unidad -->
-			<?php echo $form->field($model, 'unidad')->textInput() ?>
+			<?php echo $form->field($model, 'unidad')->dropDownList($unidades) ?>
 
 <!-- attribute impuesto -->
 			<?php echo $form->field($model, 'impuesto')->textInput() ?>

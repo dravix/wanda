@@ -13,15 +13,15 @@ use yii\helpers\Html;
  * @var yii\web\View $this
  * @var app\models\Notas $model
  */
-$this->title = Yii::t('models', 'Notas') . " " . $model->id . ', ' . 'Edit';
-$this->params['breadcrumbs'][] = ['label' => Yii::t('models', 'Notas'), 'url' => ['index']];
+$this->title = 'Notas' . " " . $model->id . ', ' . 'Edit';
+$this->params['breadcrumbs'][] = ['label' => 'Notas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => (string)$model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Edit';
 ?>
 <div class="giiant-crud notas-update">
 
     <h1>
-        <?php echo Yii::t('models', 'Notas') ?>
+        <?php echo 'Notas' ?>
         <small>
                         <?php echo $model->id ?>
         </small>
