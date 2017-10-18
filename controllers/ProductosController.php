@@ -13,5 +13,28 @@ namespace app\controllers;
  */
 class ProductosController extends \app\controllers\base\ProductosController
 {
+	public function behaviors()
+	{
+		return [
+			'access' => [
+				'class' => AccessControl::className(),
+				'rules' => [
+					[
+						'actions' => ['login'],
+						'allow' => true,
+						'roles' => ['?'],
+					],
+					[
+						'allow' => true,
+						'roles' => ['@'],
+					],
+					[
+						'allow' => false,
+						'roles' => ['?'],
+					],            
+				],
+			],
+		];
+	}
 
 }

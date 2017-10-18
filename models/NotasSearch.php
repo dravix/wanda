@@ -76,6 +76,7 @@ class NotasSearch extends Notas
 				'tipo' => $this->tipo,
 				'status' => $this->status,
 			]);
+		$query->orderBy('fecha desc');
 
 		return $dataProvider;
 	}

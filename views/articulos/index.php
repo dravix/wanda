@@ -124,7 +124,7 @@ $actionColumnTemplateString = '<div class="action-buttons">'.$actionColumnTempla
 			/*'precio',*/
 			/*'stock',*/
 			/*'vendidas',*/
-			/*'ultima_modificacion',*/
+			'ultima_modificacion',
 		],
 	]); ?>
     </div>

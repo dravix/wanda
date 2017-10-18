@@ -38,6 +38,7 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Productos', 'url' => ['/articulos/index']],
             ['label' => 'Notas', 'url' => ['/notas/index']],
+            ['label' => 'Familias', 'url' => ['/familias/index']],
             ['label' => 'Editor', 'url' => ['/editor/index']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
@@ -66,7 +67,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Pyventa <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

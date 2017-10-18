@@ -36,7 +36,7 @@ $this->title = 'Pyventa Web';
             <div class="col-lg-4">
                 <h2>Editor</h2>
                 <p>
-                    <?= Html::a('Editor',['editor/index'],['class'=>'btn']) ?>
+                    <?= Html::a('Editor',['editor/index'],['class'=>'btn btn-default']) ?>
 
                 </p>
             </div>

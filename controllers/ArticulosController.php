@@ -8,10 +8,34 @@
 
 namespace app\controllers;
 
+use yii\filters\AccessControl;
+
 /**
  * This is the class for controller "ArticulosController".
  */
 class ArticulosController extends \app\controllers\base\ArticulosController
 {
-
+	public function behaviors()
+	{
+		return [
+			'access' => [
+				'class' => AccessControl::className(),
+				'rules' => [
+					[
+						'actions' => ['login'],
+						'allow' => true,
+						'roles' => ['?'],
+					],
+					[
+						'allow' => true,
+						'roles' => ['@'],
+					],
+					[
+						'allow' => false,
+						'roles' => ['?'],
+					],            
+				],
+			],
+		];
+	}
 }
