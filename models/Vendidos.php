@@ -32,7 +32,7 @@ public function behaviors()
         );
     }
 
-    public function getProducto()
+    public function getArticulo()
     {
       return $this->hasOne(Articulos::className(),['ref'=>'producto']);
     }

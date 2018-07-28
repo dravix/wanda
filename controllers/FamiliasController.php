@@ -14,6 +14,11 @@ use yii\filters\AccessControl;
  */
 class FamiliasController extends \app\controllers\base\FamiliasController
 {
+	public function beforeAction($action) {
+		$this->layout = "@app/views/layouts/gentella.php";
+		return parent::beforeAction($action);
+	}
+		
 	public function behaviors()
 	{
 		return [

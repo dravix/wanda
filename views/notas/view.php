@@ -79,18 +79,21 @@ $this->params['breadcrumbs'][] = 'View';
     <?php echo DetailView::widget([
 		'model' => $model,
 		'attributes' => [
-			'cliente',
+			'clientes.nombre',
 			'cajero.nombre',
 			'caja',
-			'total',
-			'fecha',
+			'total:currency',
+			[
+				'attribute'=>'fecha',
+				'format' => ['date','php: r ']
+			],
 			'tipo',
 			'status',
 		],
 	]); ?>
 <h3>Productos</h3>
         <?php echo GridView::widget([
-		'dataProvider' => $model->productosProvider,
+		'dataProvider' => $model->vendidosProvider,
 		'pager' => [
 			'class' => yii\widgets\LinkPager::className(),
 			'firstPageLabel' => 'First',
@@ -99,14 +102,13 @@ $this->params['breadcrumbs'][] = 'View';
 		'tableOptions' => ['class' => 'table table-striped table-bordered table-hover'],
 		'headerRowOptions' => ['class'=>'x'],
 		'columns' => [
-			'ref',
-			'codigo',
-			'descripcion',
-			// 'familias.nomb`re',
-			// 'unidad',
+			'cantidad',
+			'producto',
+			'articulo.codigo',
+			'articulo.descripcion',
+			'articulo.precio:currency',
+			'total:currency',
 			// 'impuesto',`
-			'existencias.stock_logico',
-			'precio',
 			// 'ganancia',
 			/*'precio',*/
 			/*'stock',*/

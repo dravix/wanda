@@ -72,7 +72,7 @@ class NotasSearch extends Notas
 				'usuario' => $this->usuario,
 				'caja' => $this->caja,
 				'total' => $this->total,
-				'fecha' => $this->fecha,
+				'DATE(fecha)' => $this->fecha,
 				'tipo' => $this->tipo,
 				'status' => $this->status,
 			]);

@@ -44,6 +44,15 @@ public function behaviors()
             # if it has a minumum of 3 characters
             return self::find()->where(['like','descripcion',$value]);
         }
+    }
 
+    public function getUnidades() {
+      return $this->hasOne(Unidades::className(),['id'=>'unidad']);
+    } 
+
+    public function generateCodigo()
+    {
+        # Generates a random code
+        $this->codigo = random_int(1000000,9999999);
     }
 }

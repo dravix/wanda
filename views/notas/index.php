@@ -23,7 +23,7 @@ if (isset($actionColumnTemplates)) {
 	$actionColumnTemplate = implode(' ', $actionColumnTemplates);
 	$actionColumnTemplateString = $actionColumnTemplate;
 } else {
-	Yii::$app->view->params['pageButtons'] = Html::a('<span class="glyphicon glyphicon-plus"></span> ' . 'New', ['create'], ['class' => 'btn btn-success']);
+	Yii::$app->view->params['pageButtons'] = Html::a('<span class="glyphicon glyphicon-plus"></span> ' . 'Nueva', ['create'], ['class' => 'btn btn-success']);
 	$actionColumnTemplateString = "{view} {update} {delete}";
 }
 $actionColumnTemplateString = '<div class="action-buttons">'.$actionColumnTemplateString.'</div>';
@@ -45,33 +45,13 @@ $actionColumnTemplateString = '<div class="action-buttons">'.$actionColumnTempla
     </h1>
     <div class="clearfix crud-navigation">
         <div class="pull-left">
-            <?php echo Html::a('<span class="glyphicon glyphicon-plus"></span> ' . 'New', ['create'], ['class' => 'btn btn-success']) ?>
+            <?php echo Html::a('<span class="glyphicon glyphicon-plus"></span> ' . 'Nueva', ['create'], ['class' => 'btn btn-success']) ?>
         </div>
 
         <div class="pull-right">
 
 
-            <?php echo
-\yii\bootstrap\ButtonDropdown::widget(
-	[
-		'id' => 'giiant-relations',
-		'encodeLabel' => false,
-		'label' => '<span class="glyphicon glyphicon-paperclip"></span> ' . 'Relations',
-		'dropdown' => [
-			'options' => [
-				'class' => 'dropdown-menu-right'
-			],
-			'encodeLabels' => false,
-			'items' => [
 
-			]
-		],
-		'options' => [
-			'class' => 'btn-default'
-		]
-	]
-);
-?>
         </div>
     </div>
 
@@ -115,8 +95,18 @@ $actionColumnTemplateString = '<div class="action-buttons">'.$actionColumnTempla
 			'id',
 			'cajero.nombre',
 			'caja',
-			'total',
-			'fecha',
+			[
+				'attribute'=>'fecha',
+				'value'=> 'fecha',
+			    'filter' => \yii\jui\DatePicker::widget([
+			        'model'=>$searchModel,
+			        'attribute'=>'fecha',
+			        'language' => 'es',
+			        'dateFormat' => 'yyyy-MM-dd',
+			    ]),
+		    	'format' => 'html'
+			],
+			'total:currency',
 			'status',
 			
 		],

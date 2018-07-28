@@ -41,4 +41,7 @@ public function behaviors()
     {
       return $this->hasOne(Familias::className(),['id'=>'familia']);
     }
+    public function getUnidades() {
+      return $this->hasOne(Unidades::className(),['id'=>'unidad']);
+    }     
 }

@@ -44,6 +44,11 @@ public function behaviors()
       }
     }
 
+    public function getClientes()
+    {
+      return $this->hasOne(Clientes::className(),['id'=>'cliente']);
+    } 
+
     public function getCajero()
     {
       return $this->hasOne(Usuarios::className(),['id_usuario'=>'usuario']);
@@ -61,10 +66,11 @@ public function behaviors()
     {
       return new ActiveDataProvider(['query'=>$this->getProductos()]);
     }    
+
     public function getVendidosProvider()
     {
       $query=$this->getVendidos();
-      $query->innerJoinWith('producto');
+      // $query->innerJoinWith('articulo');
       return new ActiveDataProvider(['query'=>$query]);
     }
 

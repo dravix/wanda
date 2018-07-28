@@ -2,9 +2,17 @@ body {
   background: #EBEBEB;
 }
 .navbar-iris {
-  background: #2574A9;
+  background: #0088AA;
   color: #FFF;
 }
 .navbar-iris a {
-  color: #ffffff;
+  color: #FFF;
 }
+.navbar-inverse {
+  background: #0088AA;
+}
+.navbar-inverse .navbar-nav li a,
+.navbar-inverse a.navbar-brand {
+  color: #FFF;
+}
+/*# sourceMappingURL=iris.css.map */

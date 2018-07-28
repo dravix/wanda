@@ -63,3 +63,30 @@ $template = '<div><p class="repo-language">{{codigo}}</p>' .
       </div>
     </div>
 </script>
+
+<?php 
+$to = URL::to(['editor/add']);
+$this->registerJs(
+    '$("#cantidad").keypress(function (e) {
+        if (e.which == 13) {
+            $.ajax({
+                type: "post",
+                url: "'. $to .'",
+                data: {producto:current,cantidad: $(this).val()},
+                success: function(data){ 
+                    $("#basket").html(data);
+                    current = null;
+                    cantidad = 1;
+                    $("#cantidad").val("");
+                    $("#cantidad").val("");
+                }
+                });
+        }
+    });',
+    $this::POS_READY);
+ ?>
+
+
+
+
+

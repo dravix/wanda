@@ -13,6 +13,11 @@ use yii\filters\AccessControl;
  */
 class NotasController extends \app\controllers\base\NotasController
 {
+	public function beforeAction($action) {
+		$this->layout = "@app/views/layouts/gentella.php";
+		return parent::beforeAction($action);
+	}
+	
 	public function behaviors()
 	{
 		return [

@@ -8,7 +8,6 @@
 namespace app\assets;
 
 use yii\web\AssetBundle;
-
 /**
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
@@ -19,7 +18,8 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
-        'css/iris.less'
+        'css/iris.less',
+        //'css/boostrap.css',
     ];
     public $js = [
         'js/editor.js',
@@ -27,6 +27,7 @@ class AppAsset extends AssetBundle
     ];
     public $depends = [
         'yii\web\YiiAsset',
+        // 'yiister\gentelella\assets\Asset',
         'yii\bootstrap\BootstrapAsset',
     ];
 }
