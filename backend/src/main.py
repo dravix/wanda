@@ -1,7 +1,7 @@
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi import APIRouter
 from sqlalchemy.orm import Session
-from endpoints import productos
+from endpoints import productos, ventas
 from config import settings
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -27,5 +27,6 @@ def health_check():
 
 api_router = APIRouter()
 api_router.include_router(productos.router, prefix="/productos", tags=["productos"])
+api_router.include_router(ventas.router, prefix="/ventas", tags=["ventas"])
 
 app.include_router(api_router, prefix=settings.API_PREFIX)

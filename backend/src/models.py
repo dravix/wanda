@@ -1,7 +1,8 @@
 # coding: utf-8
-from sqlalchemy import BigInteger, Column, Date, DateTime, Float, Integer, String, Text, text
+from sqlalchemy import BigInteger, Column, Date, DateTime, Float, Integer, String, Text, text, ForeignKey
 from sqlalchemy.dialects.mysql import ENUM, INTEGER, TINYINT, VARCHAR
-from sqlalchemy.ext.declarative import declarative_base
+#from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship 
 
 from database import Base
 
@@ -161,6 +162,8 @@ class Nota(Base):
     tipo = Column(TINYINT, nullable=False, comment='0:Nota;1:Factura; 2: Devolucion')
     status = Column(TINYINT, nullable=False, comment='0:sin pagar; 1:pagado, 2:en credito, 3:devolucion')
 
+    vendidos = relationship("Vendido", back_populates="venta")
+
 
 class NotasCobrada(Base):
     __tablename__ = 'notas_cobradas'
@@ -241,14 +244,19 @@ class Usuario(Base):
 class Vendido(Base):
     __tablename__ = 'vendidos'
 
-    venta = Column(Integer, primary_key=True, nullable=False)
-    producto = Column(Integer, primary_key=True, nullable=False, index=True)
+    venta = Column(Integer, ForeignKey("notas.id"), primary_key=True, nullable=False)
+    producto = Column(Integer, ForeignKey("productos.ref"), primary_key=True, nullable=False, index=True)
     tipo = Column(TINYINT(1), primary_key=True, nullable=False)
     cantidad = Column(Float, nullable=False)
     total = Column(Float, nullable=False)
+    
+    venta = relationship("Nota", back_populates="vendidos")
+    producto = relationship("Producto", back_populates="vendidos")
 
 
 class Venta(Base):
+
+
     __tablename__ = 'ventas'
 
     fecha = Column(Date, primary_key=True)
