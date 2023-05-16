@@ -5,7 +5,6 @@ from sqlalchemy.ext.declarative import declarative_base
 
 from database import Base
 
-#Base = declarative_base()
 metadata = Base.metadata
 
 
@@ -195,7 +194,7 @@ class Producto(Base):
     ultima_modificacion = Column(DateTime, nullable=False)
 
 
-class Promocione(Base):
+class Promocion(Base):
     __tablename__ = 'promociones'
 
     id = Column(Integer, primary_key=True)
@@ -215,7 +214,14 @@ class Subproducto(Base):
     producto = Column(Integer, primary_key=True, nullable=False, index=True)
 
 
-class Unidade(Base):
+class Tienda(Base):
+    id = Column(Integer, primary_key=True)
+    nombre = Column(VARCHAR(50))
+    ubicacion = Column(Text)
+    telefono = Column(Text)
+
+
+class Unidad(Base):
     __tablename__ = 'unidades'
 
     id = Column(Integer, primary_key=True)

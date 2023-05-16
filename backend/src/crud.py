@@ -1,19 +1,30 @@
 from sqlalchemy.orm import Session
 
-import models, schemas
+from models import Producto, Usuario
+from schemas.producto import ProductoSearch
 
-def get_producto(db: Session, ref:int):
-         return db.query(models.Producto).filter(models.Producto.ref == ref).first()
 
-def get_producto_by_codigo(db: Session, codigo:int):
-         return db.query(models.Producto).filter(models.Producto.codigo == codigo).first()
+def get_producto(db: Session, ref: int):
+    return db.query(Producto).filter(Producto.ref == ref).first()
+
+
+def get_producto_by_codigo(db: Session, codigo: int):
+    return db.query(Producto).filter(
+                 Producto.codigo == codigo).first()
+
 
 def get_productos(db: Session, skip: int = 0, limit: int = 15):
-        return db.query(models.Producto).offset(skip).limit(limit).all()
+    return db.query(Producto).offset(skip).limit(limit).all()
 
-# def get_user(db: Session, user_id: int):
-#     return db.query(models.User).filter(models.User.id == user_id).first()
 
+def get_user(db: Session, user_id: int):
+    return db.query(Usuario).filter(Usuario.usuario_id == user_id).first()
+
+
+def find_producto(db: Session, producto: ProductoSearch):
+    return db.query(Producto).filter(
+        Producto.descripcion.contains(producto.descripcion)
+    )
 
 # def get_user_by_email(db: Session, email: str):
 #     return db.query(models.User).filter(models.User.email == email).first()
